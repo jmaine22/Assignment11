@@ -6,14 +6,34 @@ let arrEmployees = [
     [14545423, "Robin Banks", 7867, "robin@vectacorp.com", "Marketing"],
     [13413453, "Sue Wedge", 1235, "sue@vectacorp.com", "QA"]
 ];
-const constructObject = arr => {
-    return arr.reduce((acc, val) => {
-        const [key, value] = val;
-        acc[key] = value;
-        return acc;
-    }, {});
-};
-console.log(constructObject(arrEmployees));
+// const constructObject = arr => {
+//     return arr.reduce((acc, val) => {
+//         const [key, value] = val;
+//         acc[key] = value;
+//         return acc;
+//     }, {});
+// };
+function arrayToJSONObject (arrEmployees){
+    let keys = arrEmployees[0];
+
+    let newArr = arrEmployees.slice(1, arrEmployees.length);
+
+    let formatted = [],
+    data = newArr,
+    cols = keys,
+    l = cols.length;
+    for (let i=0; i<data.length; i++) {
+            let d = data[i],
+                    o = {};
+            for (var j=0; j<l; j++) 
+                o[cols[j]] = d[j];
+            formatted.push(o);
+    }
+    return formatted;
+    console.log(keys);
+}
+arrayToJSONObject(arrEmployees);
+console.log(arrayToJSONObject(arrEmployees));
 // GET DOM ELEMENTS
 let empTable    = document.querySelector('#employees');
 let empCount    = document.querySelector('#empCount');
