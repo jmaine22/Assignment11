@@ -32,8 +32,11 @@ function arrayToJSONObject (arrEmployees){
     return formatted;
     console.log(keys);
 }
-arrayToJSONObject(arrEmployees);
-console.log(arrayToJSONObject(arrEmployees));
+let jSon = arrayToJSONObject(arrEmployees);
+console.log(jSon);
+let jsonData = JSON.stringify(jSon);
+console.log(jsonData);
+//js.writeFile('/data/employees.json',jsonData);
 // GET DOM ELEMENTS
 let empTable    = document.querySelector('#employees');
 let empCount    = document.querySelector('#empCount');
