@@ -6,7 +6,14 @@ let arrEmployees = [
     [14545423, "Robin Banks", 7867, "robin@vectacorp.com", "Marketing"],
     [13413453, "Sue Wedge", 1235, "sue@vectacorp.com", "QA"]
 ];
-
+const constructObject = arr => {
+    return arr.reduce((acc, val) => {
+        const [key, value] = val;
+        acc[key] = value;
+        return acc;
+    }, {});
+};
+console.log(constructObject(arrEmployees));
 // GET DOM ELEMENTS
 let empTable    = document.querySelector('#employees');
 let empCount    = document.querySelector('#empCount');
