@@ -35,7 +35,9 @@ function arrayToJSONObject (arrEmployees){
 let jSon = arrayToJSONObject(arrEmployees);
 console.log(jSon);
 let jsonData = JSON.stringify(jSon);
+jsonData = JSON.parse(jsonData);
 console.log(jsonData);
+localStorage.setItem('/data/employees.json', jsonData);
 //js.writeFile('/data/employees.json',jsonData);
 // GET DOM ELEMENTS
 let empTable    = document.querySelector('#employees');
