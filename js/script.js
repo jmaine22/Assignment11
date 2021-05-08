@@ -51,9 +51,6 @@
 let empTable    = document.querySelector('#employees');
 let empCount    = document.querySelector('#empCount');
 
-// BUILD THE EMPLOYEES TABLE WHEN THE PAGE LOADS
-buildGrid(arrEmployees);
-
 // DELETE EMPLOYEE
 empTable.addEventListener('click', (e) => {
     if (e.target.classList.contains('delete')) {
@@ -68,14 +65,15 @@ empTable.addEventListener('click', (e) => {
 });
 
 // BUILD THE EMPLOYEES GRID
-function buildGrid(arrEmployees) {
-    // REMOVE THE EXISTING SET OF ROWS BY REMOVING THE ENTIRE TBODY SECTION
+function buildGrid() {
+    getData().then ( data => {
+        // REMOVE THE EXISTING SET OF ROWS BY REMOVING THE ENTIRE TBODY SECTION
     empTable.lastElementChild.remove();
     // REBUILD THE TBODY FROM SCRATCH
     let tbody = document.createElement('tbody');
     // LOOP THROUGH THE ARRAY OF EMPLOYEES
     // REBUILDING THE ROW STRUCTURE
-    for (let employee of arrEmployees) {
+    for (let employee of data.employees) {
         tbody.innerHTML += 
         `
         <tr>
@@ -91,5 +89,10 @@ function buildGrid(arrEmployees) {
     // BIND THE TBODY TO THE EMPLOYEE TABLE
     empTable.appendChild(tbody);
     // UPDATE EMPLOYEE COUNT
-    empCount.value = `(${arrEmployees.length})`;
+    empCount.value = `(${data.employees.length})`;
+    })
+    
 };
+
+// BUILD THE EMPLOYEES TABLE WHEN THE PAGE LOADS
+buildGrid();
