@@ -6,6 +6,7 @@ let arrEmployees = [
     [14545423, "Robin Banks", 7867, "robin@vectacorp.com", "Marketing"],
     [13413453, "Sue Wedge", 1235, "sue@vectacorp.com", "QA"]
 ];
+
 // const constructObject = arr => {
 //     return arr.reduce((acc, val) => {
 //         const [key, value] = val;
@@ -13,32 +14,39 @@ let arrEmployees = [
 //         return acc;
 //     }, {});
 // };
-function arrayToJSONObject (arrEmployees){
-    let keys = arrEmployees[0];
+// function arrayToJSONObject (arrEmployees){
+//     let keys = arrEmployees[0];
 
-    let newArr = arrEmployees.slice(1, arrEmployees.length);
+//     let newArr = arrEmployees.slice(1, arrEmployees.length);
 
-    let formatted = [],
-    data = newArr,
-    cols = keys,
-    l = cols.length;
-    for (let i=0; i<data.length; i++) {
-            let d = data[i],
-                    o = {};
-            for (var j=0; j<l; j++) 
-                o[cols[j]] = d[j];
-            formatted.push(o);
-    }
-    return formatted;
-    console.log(keys);
-}
-let jSon = arrayToJSONObject(arrEmployees);
-console.log(jSon);
-let jsonData = JSON.stringify(jSon);
-jsonData = JSON.parse(jsonData);
-console.log(jsonData);
-localStorage.setItem('/data/employees.json', jsonData);
-//js.writeFile('/data/employees.json',jsonData);
+//     let formatted = [],
+//     data = newArr,
+//     cols = keys,
+//     l = cols.length;
+//     for (let i=0; i<data.length; i++) {
+//             let d = data[i],
+//                     o = {};
+//             for (var j=0; j<l; j++) 
+//                 o[cols[j]] = d[j];
+//             formatted.push(o);
+//     }
+//     return formatted;
+//     console.log(keys);
+// }
+// let jSon = arrayToJSONObject(arrEmployees);
+// console.log(jSon);
+// let jsonData = JSON.stringify(jSon);
+// jsonData = JSON.parse(jsonData);
+// console.log(jsonData);
+// function saveFileToJSON(jSon) {
+    
+//     //let  jsonFile = '/data/employees.json';
+//     let file = new File('employees.json', "write");
+//     file.open();
+//     file.close();
+
+// }
+// saveFileToJSON(jSon);
 // GET DOM ELEMENTS
 let empTable    = document.querySelector('#employees');
 let empCount    = document.querySelector('#empCount');
